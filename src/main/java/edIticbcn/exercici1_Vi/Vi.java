@@ -1,4 +1,4 @@
-package edIticbcn.exercici1;
+package edIticbcn.exercici1_Vi;
 
 /**
  * Vi: versió 1
@@ -12,8 +12,11 @@ package edIticbcn.exercici1;
  * Observacions:
  * com que no hi ha excepcions, de moment considerem que tots els arguments són vàlids
  *
- * Feu un main per fer proves que crei un vector amb 3 vins i els mostri per pantalla.
+ * Feu un main per fer proves que creï un vector amb 3 vins i els mostri per pantalla.
  * Un dels vins que es creen ha de fer servir el constructor sense estoc.
+ *
+ * Indicació: Podríem normalitzar noms però no fem servir marca "NOM_NO_VÀLID".
+ * Deixem aquest problema per a la segona part
  */
 public class Vi {
     private String nom;
