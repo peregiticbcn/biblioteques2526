@@ -1,39 +1,8 @@
-package edIticbcn.exercici11.ordenemLaBodega;
+package edIticbcn.exercici13_aixoVaLent_introduccióALaComplexitat;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
-/**
- * A l'exemple que hem fet abans hem pogut comprovar que l'ordre natural dels Integer és en ordre creixent.
- * Per això, quan ordenem un ArrayList<Integer> els números queden ordenats de més petit a més gran.
- * De manera similar, els Strings queden ordenats de manera alfabètica en ordre creixent.
- * On és el secret d'aquest ordre?
- *
- * El secret es troba en què la classe Integer és Comparable<Integer> (és a dir, implementa la interficie Comparable).
- * Aquesta interfície implementa el mètode compareTo() que és el que es crida quan es fa sort.
- * Meravelles que permeten els llenguatges orientats a objectes gràcies al polimorfisme!!!
- * Hi ha un únic mètode d'ordenació que, en funció de què ordenem, crida el seu propi comparaTo
- *
- * De manera semblant s'ordenen els Strings d'un ArrayList de strings (String també es Comparable).
- *
- * Alternativament, podem passar el seu propi comparator de manera que cridarà, per polimorfisme, el compare()
- * corresponent.
- *
- * ACTIVITAT: Volem ordenar de diverses maneres.
- * A la Bodega afegirem els mètodes
- * 1-. Ordena que ordena els vins en ordre creixent del seu nom (és l'ordre natural i, per tant,
- * caldrà modificar la classe Vi).
- * 2-. ordenaPerEstocDecreixent que ordena els vins en ordre decreixent de l'estoc disponible
- * 3-. ordenaPerPreuCreixentIEstocDecreixent. Que ordena els vins en ordre decreixent de preu i, en cas d'empat,
- * posa primer el que té més estoc.
- *
- * PER REVISAR: 4-. Afegiu el mètode mostra itera per tots els vins de la Bodega. Potser hi hauria de ser d'abans
- *
- * Per als apartats 2 i 3 podeu escollir els mètodes d'ordenació que preferiu: classe interna, anònima, funció lambda
- * (exceptuant la classe externa).
- *
- * PENDENT: es proporciona classe de prova.
- */
 public class Bodega {
 
 

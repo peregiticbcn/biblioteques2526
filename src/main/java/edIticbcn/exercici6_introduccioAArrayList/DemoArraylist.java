@@ -39,7 +39,7 @@ import java.util.ArrayList;
  *
  */
 
-public class ExempleArraylist {
+public class DemoArraylist {
     public static void main(String[] args) {
         ArrayList<Integer>  enters = new ArrayList<>();
         enters.add(1);
