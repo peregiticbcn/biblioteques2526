@@ -1,4 +1,4 @@
-package edIticbcn.exercici1_ViAmbControlArguments;
+package edIticbcn.exercici5_BodegaMidaDinamica;
 
 /**
  * A la primera versió de Vi ens podem trobar que creem un vi
