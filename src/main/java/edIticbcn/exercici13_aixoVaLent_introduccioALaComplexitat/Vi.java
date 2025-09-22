@@ -1,4 +1,4 @@
-package edIticbcn.exercici13_aixoVaLent_introduccióALaComplexitat;
+package edIticbcn.exercici13_aixoVaLent_introduccioALaComplexitat;
 
 public class Vi implements Comparable<Vi> {
     private String nom;

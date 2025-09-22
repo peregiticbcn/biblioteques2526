@@ -1,39 +1,57 @@
-package edIticbcn.exercici13_aixoVaLent_introduccióALaComplexitat;
+package edIticbcn.exercici13_aixoVaLent_introduccioALaComplexitat;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.TreeSet;
 
-public class Bodega {
+/**
+ *
+ * Dubte:
+ * Com consultem un VI?
+ * Problemes:
+ * No hi ha indexof
+ * No retorna el Vi
+ * Pensar amb el funcionament dels duplicats
+ * No ordenar
+ */
+public class BodegaSet {
 
 
     public static int DEFAULT_MAX_VINS = 10;
 
-    private ArrayList<Vi> vins;
+    private TreeSet<Vi> vins;
 
 
-    public Bodega(int mida){
-        vins = new ArrayList<>(mida);
+    public BodegaSet(int mida){
+        vins = new TreeSet<>();
     }
 
-    public Bodega() {
+    public BodegaSet() {
         this(DEFAULT_MAX_VINS);
     }
 
-    public int indexDe(Vi vi){
+    /*public int indexDe(Vi vi){
 
         return vins.indexOf(vi);
     }
+    */
+
 
     public boolean conteVi(Vi vi){
         return vins.contains(vi);
     }
 
+    /*
     public Vi get(int index){
         if (index <0 || index >= vins.size()){
             return null;
         }
 
         return vins.get(index);
+    }
+    */
+
+    public Vi get(Vi vi){
+
+        return vins.ceiling(vi);
     }
 
     public Vi afegeix(Vi vi)  {
@@ -47,12 +65,11 @@ public class Bodega {
     }
 
     public Vi elimina(Vi vi){
-        int index = indexDe(vi);
-        if (index == -1){
-            return null;
+
+        if (vins.contains(vi)){
+            vins.remove(vi);
         }
         //desplaçar els vins
-        vi = vins.remove(index);
 
         return vi;
     }
@@ -60,7 +77,7 @@ public class Bodega {
     public int mida() {
         return vins.size();
     }
-
+    /*
     public void ordena(){
         vins.sort(null);
     }
@@ -85,7 +102,7 @@ public class Bodega {
             }
         });
     }
-
+    */
     public void mostra(){
         for(Vi vi: vins){
             System.out.println(vi);
@@ -93,8 +110,9 @@ public class Bodega {
         System.out.println();
     }
 
+    /*
     public static void main(String[] args) {
-        Bodega bodega = new Bodega(3);
+        BodegaSet bodega = new BodegaSet(3);
         bodega.afegeix(new Vi("ViBo", 1000, 10));
         bodega.afegeix(new Vi("Segon", 2000, 202));
         bodega.afegeix(new Vi("tres", 3000));
@@ -107,6 +125,6 @@ public class Bodega {
         }
 
     }
-
+*/
 
 }
