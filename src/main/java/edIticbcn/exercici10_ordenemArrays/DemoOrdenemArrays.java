@@ -2,12 +2,24 @@ package edIticbcn.exercici10_ordenemArrays;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Collection;
 import java.util.Comparator;
-import java.util.stream.Stream;
+
 
 public class DemoOrdenemArrays {
 
+    public static void mostraEnters(ArrayList<Integer> enters){
+        for(Integer i: enters){
+            System.out.println(i);
+        }
+        System.out.println();
+    }
+
+    public static void mostraStrings(ArrayList<String> cadenes){
+        for(String s: cadenes){
+            System.out.println(s);
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         ArrayList<Integer> enters = new ArrayList<>();
@@ -16,66 +28,61 @@ public class DemoOrdenemArrays {
         enters.add(1);
         enters.add(6);
         System.out.println("Ordre inicial");
-        for(int i=0; i< enters.size(); i++){
-            System.out.println(enters.get(i));
-        }
+        mostraEnters(enters);
 
-        System.out.println("Mostrem ordenats");
+        System.out.println("Ordenem numeros ordre natural (el que ens fa per defecte)");
         Collections.sort(enters);
-        for(int i=0; i< enters.size(); i++){
-            System.out.println(enters.get(i));
-        }
+        mostraEnters(enters);
+
 
         //Ordenem Strings
         ArrayList<String> strings = new ArrayList<>();
         strings.add("bola");
-        strings.add("iere");
+        strings.add("història");
         strings.add("aura");
-        strings.add("dilota");
+        strings.add("pilota");
+        System.out.println("Ordre inicial strings");
+        mostraStrings(strings);
 
-        System.out.println("Ordre inicial");
-        for(int i=0; i< strings.size(); i++){
-            System.out.println(strings.get(i));
-        }
-
-        System.out.println("Mostrem ordenats");
+        System.out.println("Ordenem strings ordre natural (el que es fa per defecte)");
         Collections.sort(strings);
-        for(int i=0; i< strings.size(); i++){
-            System.out.println(strings.get(i));
-        }
+        //Alternativa
+        //strings.sort(null);
+        mostraStrings(strings);
 
-        //I si ho volem ordenar en ordre decreixent
-        System.out.println("Mostrem ordenats en ordre decreixent");
-        Collections.sort(strings);
-        for(int i= strings.size()-1; i>= 0; i--){
-            System.out.println(strings.get(i));
-        }
+        System.out.println("Ordenem strings en ordre decreixent");
+        System.out.println("Fent una classe externa ComparatorDecreixentStrings");
+        Comparator<String> comparatorDecreixentString = new ComparatorDecreixentString();
+        strings.sort(comparatorDecreixentString);
+        mostraStrings(strings);
 
-        System.out.println("Ordenem en ordre decreixent");
-        Collections.sort(strings, new Comparator<String>() {
+        System.out.println("Ordenem strings segons longitud creixent");
+        System.out.println("Fent una classe interna ComparatorMidaCreixentString");
+        class ComparatorMidaCreixentString implements Comparator<String> {
+
             @Override
             public int compare(String o1, String o2) {
-                return o2.compareTo(o1);
+                return o1.length() - o2.length();
             }
-        });
-        for(int i=0; i< strings.size(); i++){
-            System.out.println(strings.get(i));
         }
+        strings.sort(new ComparatorMidaCreixentString());
+        mostraStrings(strings);
 
+        System.out.println("Ordenem strings segons longitud decreixent");
+        System.out.println("Fent un comparador anònim");
 
-        //Amb classe externa
-        //Amb classe anònima
-        //Amb funció lambda
-        System.out.println("Ordenem de més llarg a més curta");
-        Collections.sort(strings, new Comparator<String>() {
+        strings.sort(new Comparator<>() {
             @Override
             public int compare(String o1, String o2) {
                 return o2.length() - o1.length();
             }
         });
-        for(int i=0; i< strings.size(); i++){
-            System.out.println(strings.get(i));
-        }
+        mostraStrings(strings);
+
+        System.out.println("Una classe anònima d'un sol mètode es pot substituir per una funció lambda");
+        System.out.println("En fem servir una per tornar a ordenar per longitud creixent");
+        strings.sort((o1, o2) -> o1.length() - o2.length());
+        mostraStrings(strings);
 
     }
 }
